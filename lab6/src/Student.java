@@ -1,6 +1,6 @@
 package src;
 
-public class Student {
+public class Student implements Comparable {
 	String nume;
 	String prenume;
 	int grupa;
@@ -49,5 +49,15 @@ public class Student {
 		} else if (!prenume.equals(other.prenume))
 			return false;
 		return true;
+	}
+
+
+	@Override
+	public int compareTo(Object o) {
+		Student student=(Student)o;
+		if(this.nume==student.nume){
+			return this.prenume.compareTo(student.prenume); 
+		}
+		return this.nume.compareTo(student.nume);
 	}
 }

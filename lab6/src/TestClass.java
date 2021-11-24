@@ -1,5 +1,8 @@
 package src;
 
+// import java.util.ArrayList;
+// import java.util.Collections;
+
 public class TestClass {	
 	public static void main(String[] args) {
 		DataManager dataManager = new DataManager();
@@ -25,6 +28,20 @@ public class TestClass {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		dataManager.sorteazaStudentiDupaGrupa();
+		// dataManager.sorteazaStudentiDupaGrupa();
+		// ArrayList<Student>studenti=new ArrayList<>();
+		// for(Student s:dataManager.dataSetOfStudent){
+		// 	studenti.add(s);
+		// }
+		
+		// Collections.sort(studenti);
+		// for(Student s:studenti){
+		// 	System.out.println(s);
+		// }
+		// SortareCursDupaNume s1=new SortareCursDupaNume();
+		// dataManager.manager.cursuri.sort(s1);
+		// for(Curs c:dataManager.manager.cursuri){
+		// 	System.out.println(c.nume);
+		// }
 	}
 }

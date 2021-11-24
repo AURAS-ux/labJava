@@ -1,15 +1,10 @@
 package src;
-
-import static java.lang.System.out;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-import java.util.TreeMap;
 
 public class DataManager {
 	public ManagerCursuri manager = new ManagerCursuri();
@@ -84,12 +79,20 @@ public class DataManager {
 	// Studentii sa poata fi usor grupati dupa numarul grupei din care fac parte.
 	
 	public void sorteazaStudentiDupaGrupa(){
-		TreeMap<Integer, ArrayList<Student>> studentiGrupati = new TreeMap<Integer, ArrayList<Student>>();
+		HashMap<Integer, ArrayList<Student>> studentiGrupati = new HashMap<Integer, ArrayList<Student>>();
 		ArrayList<Student> st= new ArrayList<Student>();
 		for(Student s:dataSetOfStudent){
 			Integer gr = s.grupa;
-			st.addAll(studentiGrupati.get(gr));
-			studentiGrupati.put(gr,st);
+			st=studentiGrupati.get(gr);
+			if(st == null){
+				st = new ArrayList<>();
+				st.add(s);
+				studentiGrupati.put(gr, st);
+			}
+			else{
+				st.add(s);
+				studentiGrupati.put(gr, st);
+			}
 		}
 		for(Map.Entry<Integer, ArrayList<Student>> entry:studentiGrupati.entrySet()){
 			System.out.println("Grupa "+entry.getKey()+" are studentii "+entry.getValue());
